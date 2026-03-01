@@ -34,6 +34,7 @@ function MineView() {
   // const address = '0xa2122d69e25821079d6af4a7130cb09f0ff8fd1e'
   // const address = '0x95c8e33969ba1e96523623e9fbe376a594557aec'
   // const address = '0xddc6a65251914b361f8784afc79162351009e487'
+  // const address = '0xB67E9026aF55427beFF9bA7200363425Ac1a4B72'
   // Contract addresses
   const CONTRACTS = {
     REWARD_TRACKER: import.meta.env.VITE_REWARD_TRACKER_ADDRESS || '0xF6ACbC9FE9757e93c85beF796ee52254B6073576',
@@ -823,7 +824,7 @@ function MineView() {
                               <p className="font-medium">{t('stake.reward')}: ${formatWei(unstake.reward, 4)} USD1</p>
                               <div className="flex items-center gap-4 mt-1">
                                 <p className="text-xs text-white/40">{formatTimestamp(unstake.unstake_time)}</p>
-                                <p className="text-xs text-white/40">{transformDay(unstake.stake_index)}</p>
+                                {/* <p className="text-xs text-white/40">{transformDay(unstake.stake_index)}</p> */}
                               </div>
                             </div>
                             <span className="px-2 py-1 rounded text-xs font-bold bg-green-500/20 text-green-400">

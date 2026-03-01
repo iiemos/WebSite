@@ -154,7 +154,7 @@ const useStakeStore = create((set, get) => ({
       // Get contract instances for read operations
       const stakingContract = new ethers.Contract(import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722', StakingABI, provider);
       const usdtContract = new ethers.Contract(import.meta.env.VITE_USDT_ADDRESS || '0x57B84A31E00eF4378E6b2D30703b73d02Aee13f8', ERC20ABI, provider);
-      const aigContract = new ethers.Contract(import.meta.env.VITE_AIG_ADDRESS || '0x6B8b0372c5f708FF28849FF557c732f46D7A9F81', ERC20ABI, provider);
+      const aigContract = new ethers.Contract(import.meta.env.VITE_AIG_ADDRESS || '0xAbcD8707756cD3116E44B20804b67Ce95a216B0A', ERC20ABI, provider);
       const aigInsuranceContract = new ethers.Contract(import.meta.env.VITE_AIG_INSURANCE_ADDRESS || '0x2a40bcFD79512C4d865c776496Bf65B97EFCeC36', AigInsuranceABI, provider);
       
       // Load all data from real contracts using Promise.allSettled for resilience
@@ -331,7 +331,7 @@ const useStakeStore = create((set, get) => ({
       
       const stakingContract = new ethers.Contract(import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722', StakingABI, signer);
       const usdtContract = new ethers.Contract(import.meta.env.VITE_USDT_ADDRESS || '0x57B84A31E00eF4378E6b2D30703b73d02Aee13f8', ERC20ABI, signer);
-      const aigContract = new ethers.Contract(import.meta.env.VITE_AIG_ADDRESS || '0x6B8b0372c5f708FF28849FF557c732f46D7A9F81', ERC20ABI, signer);
+      const aigContract = new ethers.Contract(import.meta.env.VITE_AIG_ADDRESS || '0xAbcD8707756cD3116E44B20804b67Ce95a216B0A', ERC20ABI, signer);
       const teamLevelContract = new ethers.Contract(import.meta.env.VITE_TEAM_LEVEL_ADDRESS || '0x1a5a3A1F23f6314Ffac0705fC19B9c6c9319Ae82', TeamLevelABI, signer);
       
       // Check real balances (ethers v6 uses native BigInt)
@@ -351,9 +351,9 @@ const useStakeStore = create((set, get) => ({
         throw new Error(i18n.t('error.usd1Balance'));
       }
       
-      if (aigBalanceNum < requiredAIG) {
-        throw new Error(i18n.t('error.aigBalance'));
-      }
+      // if (aigBalanceNum < requiredAIG) {
+      //   throw new Error(i18n.t('error.aigBalance'));
+      // }
       
       // Check and approve USD1
       const usdtAllowance = await usdtContract.allowance(await signer.getAddress(), import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722');
@@ -363,11 +363,11 @@ const useStakeStore = create((set, get) => ({
       }
       
       // Check and approve AIG
-      const aigAllowance = await aigContract.allowance(await signer.getAddress(), import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722');
-      if (aigAllowance < aigAmountWei) {
-        const aigTx = await aigContract.approve(import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722', MaxUint256);
-        await aigTx.wait();
-      }
+      // const aigAllowance = await aigContract.allowance(await signer.getAddress(), import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722');
+      // if (aigAllowance < aigAmountWei) {
+      //   const aigTx = await aigContract.approve(import.meta.env.VITE_STAKING_ADDRESS || '0xD82B1B0D51CB0D220eFbbbf2BBf3E2cCf173E722', MaxUint256);
+      //   await aigTx.wait();
+      // }
       
       // Check if user is bound to referrer
       const isBound = await teamLevelContract.isBindReferral(await signer.getAddress());
@@ -375,7 +375,8 @@ const useStakeStore = create((set, get) => ({
       let stakeSuccess;
       if (isBound) {
         // User is bound, use regular staking
-        const tx = await stakingContract.stakeWithAIG(amountWei, selectedStakeIndex);
+        // const tx = await stakingContract.stakeWithAIG(amountWei, selectedStakeIndex);
+        const tx = await stakingContract.stake(amountWei, selectedStakeIndex);
         await tx.wait();
         stakeSuccess = true;
       } else {
@@ -383,7 +384,8 @@ const useStakeStore = create((set, get) => ({
         if (!referrer || !isAddress(referrer)) {
           throw new Error(i18n.t('error.newUserReferral'));
         }
-        const tx = await stakingContract.stakeWithAIGWithInviter(amountWei, selectedStakeIndex, referrer);
+        // const tx = await stakingContract.stakeWithAIGWithInviter(amountWei, selectedStakeIndex, referrer);
+        const tx = await stakingContract.stakeWithInviter(amountWei, selectedStakeIndex, referrer);
         await tx.wait();
         stakeSuccess = true;
       }
