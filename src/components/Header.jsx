@@ -33,9 +33,9 @@ function Header({ isOpen, toggleMenu }) {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <img src="/img/coin.png" alt="MarvinX Logo" className="size-12" />
+            {/* <img src="/img/coin.png" alt="Project Origin Logo" className="size-12" /> */}
             <h2 className="text-xl font-extrabold tracking-tight text-white">
-              Marvin<span className="text-[#7c3bed]">X</span>
+              Project <span className="text-[#7c3bed]">Origin</span>
             </h2>
           </div>
         <div className="flex items-center gap-6">

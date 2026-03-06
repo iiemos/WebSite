@@ -278,9 +278,9 @@ function HomeView() {
               <Icon icon={isMobileMenuOpen ? "mdi:close" : "mdi:menu"} className="text-3xl" />
           </button>
           <div className="flex items-center gap-2">
-            <img src="/img/coin.png" alt="MarvinX Logo" className="size-12" />
+            {/* <img src="/img/coin.png" alt="Project Origin Logo" className="size-12" /> */}
             <h2 className="text-xl font-extrabold tracking-tight text-white">
-              Marvin<span className="text-[#a855f7]">X</span>
+              Project <span className="text-[#a855f7]">Origin</span>
             </h2>
           </div>
           
@@ -377,7 +377,7 @@ function HomeView() {
                   <div className="absolute inset-16 rounded-full border-[3px] border-dashed border-primary/10 animate-rotate-slow" style={{ animationDuration: '20s' }}></div>
                   <div className="absolute inset-20 rounded-full bg-gradient-to-br from-primary to-accent-blue opacity-30 blur-3xl animate-breathing"></div>
                   <div className="relative z-10 flex items-center justify-center w-24 h-24 rounded-full bg-slate-900/80 border border-white/10 shadow-2xl">
-                    <img src="/img/coin.png" alt="MarvinX Logo" />
+                    <img src="/img/coin.png" alt="Project Origin Logo" />
                   </div>
                   <div className="absolute top-0 left-1/2 size-2 bg-primary rounded-full blur-[1px] animate-pulse"></div>
                   <div className="absolute bottom-10 right-10 size-3 bg-accent-blue rounded-full blur-[2px] animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -542,7 +542,7 @@ function HomeView() {
               <Icon icon="mdi:sparkles" className="text-lg" />
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">邀请好友</h2>
-            <p className="text-lg text-slate-400 mb-6">MarvinX：共筑 Web3 确权价值生态</p>
+            <p className="text-lg text-slate-400 mb-6">Project Origin：共筑 Web3 确权价值生态</p>
             <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 justify-center">
               <div className="flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 h-12 px-4 flex-1">
                 <span className="flex-1 min-w-0 text-sm text-primary font-mono truncate">{marvinInviteLink}</span>
@@ -563,7 +563,7 @@ function HomeView() {
             <div className="relative grid lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-3xl font-bold text-white mb-4">MarvinX：共筑 Web3 确权价值生态</h3>
+                  <h3 className="text-3xl font-bold text-white mb-4">Project Origin：共筑 Web3 确权价值生态</h3>
                   <p className="text-slate-300">
                     构建“现实行为 × 区块链确权 × 公益激励”全链路体系
                   </p>
