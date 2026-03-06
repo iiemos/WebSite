@@ -823,7 +823,7 @@ function SwapView() {
                       <button className="bg-primary/20 hover:bg-primary/40 text-primary text-[10px] font-bold px-2 py-1 rounded-md transition-all" onClick={setMaxAmount}>MAX</button>
                       <div className="flex items-center gap-2 bg-background-dark border border-white/10 px-3 py-2 rounded-xl cursor-pointer hover:bg-white/5 transition-all">
                         <div className={`size-6 ${fromToken === 'USDT' ? 'bg-green-500/20' : 'bg-primary/20'} rounded-full flex items-center justify-center`}>
-                          <img src={fromToken === 'USDT' ? '/img/usdt.png' : '/img/logo.svg'} alt={fromToken} className="size-6" />
+                          <img src={fromToken === 'USDT' ? '/img/usdt.png' : '/img/coin.png'} alt={fromToken} className="size-6" />
                         </div>
                         <span className="font-bold text-lg">{fromToken}</span>
                         <Icon icon="mdi:chevron-down" className="text-lg text-white/40" />
@@ -846,7 +846,7 @@ function SwapView() {
                     <div className="flex items-center gap-2">
                       <div className="flex items-center gap-2 bg-background-dark border border-white/10 px-3 py-2 rounded-xl cursor-pointer hover:bg-white/5 transition-all">
                         <div className={`size-6 ${toToken === 'USDT' ? 'bg-green-500/20' : 'bg-primary/20'} rounded-full flex items-center justify-center`}>
-                          <img src={toToken === 'USDT' ? '/img/usdt.png' : '/img/logo.svg'} alt={toToken} className="size-6" />
+                          <img src={toToken === 'USDT' ? '/img/usdt.png' : '/img/coin.png'} alt={toToken} className="size-6" />
                         </div>
                         <span className="font-bold text-lg">{toToken}</span>
                         <Icon icon="mdi:chevron-down" className="text-lg text-white/40" />
