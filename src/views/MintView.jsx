@@ -111,7 +111,11 @@ function MintView() {
 
   return (
     <div className="dark:bg-background-dark font-display text-white min-h-screen">
-      <div className="flex flex-col lg:flex-row">
+      {/* 背景/网格保持原样 */}
+      <div className="fixed inset-0 z-0 bg-grid opacity-50 pointer-events-none"></div>
+      <div className="fixed inset-0 z-0 bg-[radial-gradient(circle_at_50%_50%,rgba(124,59,237,0.1)_0%,transparent_50%)] pointer-events-none"></div>
+
+      <div className="relative z-10 flex flex-col lg:flex-row">
         <main className="max-w-[1440px] mx-auto w-full px-4 md:px-10 py-10 pt-18">
           <div className="mb-6">
             <h3 className="text-white text-4xl font-black leading-tight tracking-[-0.033em]">铸造中心</h3>
@@ -235,7 +239,7 @@ function MintView() {
                         <p className="text-white font-bold mt-1">{MINT_FUEL_FEE_RLF} RLF</p>
                       </div>
                       <Link
-                        to="/swap"
+                        to="/fuel-exchange"
                         className="inline-flex items-center justify-center px-3 py-2 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors text-sm font-bold"
                       >
                         去兑换

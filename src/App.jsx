@@ -10,6 +10,7 @@ import CookieConsent from './components/CookieConsent.jsx'
 import HomeView from './views/HomeView.jsx'
 import StakeView from './views/StakeView.jsx'
 import MintView from './views/MintView.jsx'
+import FuelExchangeView from './views/FuelExchangeView.jsx'
 import SwapView from './views/SwapView.jsx'
 import TeamView from './views/TeamView.jsx'
 import MineView from './views/MineView.jsx'
@@ -220,6 +221,7 @@ function AppContent() {
                 <Route path="/" element={<HomeView />} />
                 <Route path="/stake" element={<StakeView />} />
                 <Route path="/mint" element={<MintView />} />
+                <Route path="/fuel-exchange" element={<FuelExchangeView />} />
                 <Route path="/swap" element={<SwapView />} />
                 <Route path="/team" element={<TeamView />} />
                 <Route path="/mine" element={<MineView />} />
